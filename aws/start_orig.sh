@@ -8,11 +8,11 @@ if [ ! -f ./root-CA.crt ]; then
 fi
 
 # install AWS Device SDK for NodeJS if not already installed
-#if [ ! -d ../node_modules ]; then
-#  printf "\nInstalling AWS SDK...\n"
-#  npm install aws-iot-device-sdk
-#fi
+if [ ! -d ./node_modules ]; then
+  printf "\nInstalling AWS SDK...\n"
+  npm install aws-iot-device-sdk
+fi
 
 # run pub/sub sample app using certificates downloaded in package
 printf "\nRunning pub/sub sample application...\n"
-node ../node_modules/aws-iot-device-sdk/examples/device-example.js --host-name=axtgjcco57kze.iot.us-west-2.amazonaws.com --private-key=Mlinzi.private.key --client-certificate=Mlinzi.cert.pem --ca-certificate=root-CA.crt
+node node_modules/aws-iot-device-sdk/examples/device-example.js --host-name=axtgjcco57kze.iot.us-west-2.amazonaws.com --private-key=Mlinzi.private.key --client-certificate=Mlinzi.cert.pem --ca-certificate=root-CA.crt
